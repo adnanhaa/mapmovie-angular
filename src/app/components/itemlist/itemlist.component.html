@@ -1,0 +1,14 @@
+<div class="row">
+  <a *ngFor="let item of items"
+    class="col-sm-6 col-xs-12"
+    [routerLink]="'/'+getType()+'/'+item.id">
+   <!-- {'/' + page + '/' + item.id} key={item.id}>-->
+      <div class="card mb-2">
+          <img class="card-img-top"
+               [src]="getImgUrl(item) | safe"/>
+          <div class="card-body p-3">
+            <h5 class="card-title text-center text-dark">{{item.title === undefined ? item.name : item.title}}</h5>
+          </div>
+      </div>
+    </a>
+</div>

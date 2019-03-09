@@ -1,0 +1,24 @@
+<div>
+  <app-back-button></app-back-button>
+  <app-spinner *ngIf="isLoading"></app-spinner>
+
+  <div class="card" *ngIf="item">
+
+    <div class="embed" *ngIf="hasVideo()">
+      <iframe
+        [src]= "getVideoUrl() | safe"
+        frameBorder='0'
+        allowFullScreen='1'
+        width='auto'></iframe>
+    </div>
+
+    <img [src]="getImgUrl()" *ngIf="!hasVideo()"/>
+
+    <div class="card-body">
+      <h4 class="card-title">{{item.title === undefined ? item.name : item.title}}</h4>
+      <p class="card-text">{{item.overview}}</p>
+    </div>
+  </div>
+
+  <app-error-view *ngIf="error" [message]="error"></app-error-view>
+</div>

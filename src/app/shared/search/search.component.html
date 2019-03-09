@@ -1,0 +1,20 @@
+<div [class]="getActivityStyle()">
+  <div class="searchBox">
+    <div class="searchIcon">
+      <i class="fas fa-search"></i>
+    </div>
+    <input [value]="value"
+           type="text"
+           (input)="handleChange($event)"
+           [placeholder]="placeholder"/>
+    <div *ngIf="isClear()"
+         class="clear"
+         (click)="clearHandler()">clear</div>
+  </div>
+  <div *ngIf="suggestions.length > 0">
+    <ul class="suggestions">
+      <li *ngFor="let word of suggestions"
+          (click)="handleSuggestionClick(word.name)">{{word.name}}</li>
+    </ul>
+  </div>
+</div>

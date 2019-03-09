@@ -1,0 +1,28 @@
+<nav>
+  <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="First group">
+      <a class="btn btn-secondary pointer "
+         [ngClass]="{'active': page === 'shows'}"
+         routerLink="/shows"
+         routerLinkActive="active">TV Shows</a>
+      <a class="btn btn-secondary pointer "
+         [ngClass]="{'active': page === 'movies'}"
+         routerLink="/movies"
+         routerLinkActive="active">Movies</a>
+    </div>
+    <div class="btn-group" role="group" aria-label="First group">
+      <a class="btn btn-light pointer "
+         [ngClass]="{'active': period === 'week'}"
+         (click)="setPeriod('week')">
+        Week
+      </a>
+      <a class="btn btn-light pointer "
+         [ngClass]="{' active': period === 'day'}"
+         (click)="setPeriod('day')">
+        Day
+      </a>
+
+    </div>
+  </div>
+</nav>
+

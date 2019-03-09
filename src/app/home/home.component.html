@@ -1,0 +1,19 @@
+<div>
+  <app-homenav
+    [page]="page"
+    [period]="filters.period"
+    (setPeriodEmitter)="setPeriod($event)"></app-homenav>
+  <app-search
+    (handleSearch)="handleSearch($event)"
+    (handleSuggestions)="handleSuggestions($event)"
+    [minChars]="3"
+    [time]="100"
+    [value]="search"
+    [suggestions]="suggestions"></app-search>
+
+  <app-spinner *ngIf="isLoading"></app-spinner>
+  <app-itemlist
+    *ngIf="!isLoading && !error && items.length > 0"
+    [items]="items" [page]="page"></app-itemlist>
+  <app-error-view *ngIf="error" [message]="error"></app-error-view>
+</div>
